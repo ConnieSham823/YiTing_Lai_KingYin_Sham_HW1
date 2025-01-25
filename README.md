@@ -1,9 +1,6 @@
-# YiTing_Lai_KingYin_Sham_HW1
-This repo is for AJAX REDUX for StarWar Characters
-
 ![Star War Character](images/starWar_readme.jpeg)
 
-# tar War Character
+# Star War Character
 This project is a responsive webpage that uses AJAX to draw data from an API to display information about Star Wars characters. The webpage is designed to work seamlessly from mobile to desktop devices.
 
 ## Installation
