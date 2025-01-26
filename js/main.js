@@ -4,5 +4,5 @@
     const movieCon = document.querySelector("#movie-con");
     const baseURL = "https://swapi.dev/"
 
-
+    
 })();
