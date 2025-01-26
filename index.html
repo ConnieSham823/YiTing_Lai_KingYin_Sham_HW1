@@ -9,21 +9,21 @@
     <script defer src="js/main.js"></script>  
 </head>
 <body>
-    <header>
-        <h1 class="hidden">Star War</h1>
-        <img id="hero-img" class="col-span-full" src="images/starWar_readme.jpeg" alt="star war">
+    <header class="grid-con">
+        <section class="col-span-full">
+            <h1 class="hidden">Star War</h1>
+            <img id="hero-img" class="col-span-full" src="images/starWar_readme.jpeg" alt="star war">
+        </section>
     </header>
 
-    <main>
-        <div class="grid-con">
-
-            <section class="col-span-full m-col-span-5">
+    <main class="grid-con">
+            <section class="col-span-full t-col-start-1 t-col-end-4">
                 <h2>Characters</h2>
                 <div id="character-list">
                 </div>
             </section>
 
-            <section class="col-span-full m-col-span-5">
+            <section class="col-span-full t-col-start-4 t-col-end-12">
                 <h2>Movie</h2>
                 <div id="movie-con">
                 </div>
@@ -31,20 +31,13 @@
                 <template id="movie-template">
                     <section>
                         <h3 class="movie-title"></h3>
+                        <p class="movie-description"></p>
                         <p class="movie-director"></p>
                         <p class="movie-producer"></p>
                         <p class="movie-date"></p>
-                        <p class="movie-description"></p>
                     </section>
                 </template>
             </section>
-            
-        </div>
-    </main>
-
-    <div>
-        
-    </div>
-    
+    </main>  
 </body>
 </html>
