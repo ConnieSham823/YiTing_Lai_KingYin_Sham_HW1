@@ -24,3 +24,17 @@ li img {
     display: block;
     visibility: visible;
 }
+
+.spinner {
+    position: relative;
+    top: 20%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    display: none; /* Initially hidden */
+}
+
+#loading-spinner {
+    display: block;
+}

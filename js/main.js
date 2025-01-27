@@ -2,6 +2,7 @@
     const characterList = document.querySelector("#character-list");
     const movietemplate = document.querySelector("#movie-template");
     const movieCon = document.querySelector("#movie-con");
+    const movieSpinner = document.querySelector("#loading-spinner"); 
     const baseURL = "https://swapi.dev/";
 
     function getCharacters() {
@@ -16,7 +17,7 @@
                 const a = document.createElement("a");
                 a.textContent = character["name"];
                 
-                a.dataset.review = character["films"][0];
+                a.dataset.review = character["films"][1];
                 li.appendChild(a);
                 ul.appendChild(li);
             });
@@ -37,6 +38,8 @@
     function getMovie(e) {
         console.log("getMovie Called");
 
+        movieSpinner.style.display = "block";
+
         movieCon.innerHTML = "";
 
         const filmURL = e.currentTarget.dataset.review;
@@ -56,10 +59,14 @@
             movieDirector.innerHTML = `Director: ${response.director}`;
 
             movieCon.appendChild(clone);
+
+            movieSpinner.style.display = "none";
         })
         .catch(function(err){
             console.error("Error fetching movie:", err);
-            movieCon.innerHTML = "<p>No Review.</p>";
+            movieCon.innerHTML = "<p>Opps... Sorry... No review available for this section.</p>";
+
+            movieSpinner.style.display = "none";
         });
     }
 
