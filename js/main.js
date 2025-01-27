@@ -8,13 +8,15 @@
         fetch(`${baseURL}api/people`)
         .then(response => response.json())
         .then(function(response){
+            console.log(response);
             const characters = response.results;
             const ul = document.createElement("ul");
             characters.forEach(character => {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
-                a.textContent = character.name;
-                a.dataset.review = character.films;
+                a.textContent = character["name"];
+                
+                a.dataset.review = character["films"][0];
                 li.appendChild(a);
                 ul.appendChild(li);
             });
@@ -24,42 +26,42 @@
             const links = document.querySelectorAll("#character-list li a");
             console.log(links);
             links.forEach(function(link){
-                link.addEventListener("click", getMovie)
-            })
+                link.addEventListener("click", getMovie);
+            });
         })
         .catch(function(err){
             console.log(err);
         })
     }
 
-    getCharacters();
-
     function getMovie(e) {
-        const filmURLs = e.currentTarget.dataset.review;
+        console.log("getMovie Called");
 
-        fetch(`${baseURL}api/film${filmURLs}`)
+        movieCon.innerHTML = "";
+
+        const filmURL = e.currentTarget.dataset.review;
+
+        fetch(filmURL)
         .then(response => response.json())
         .then(function(response){
-            movieCon.innerHTML = "";
-            console.log(response.results);
-            const clone = movietemplate.textContent.cloneNode(true);
-
-            const movieDescription = clone.querySelector(".movie-description");
-            movieDescription.innerHTML = response.result.opening_crawl;
+            const clone = movietemplate.content.cloneNode(true);
 
             const movieTitle = clone.querySelector(".movie-title");
-            movieTitle.innerHTML = response.result.title;
+            movieTitle.innerHTML = response.title;
+
+            const movieDescription = clone.querySelector(".movie-description");
+            movieDescription.innerHTML = response.opening_crawl;
+
+            const movieDirector = clone.querySelector(".movie-director");
+            movieDirector.innerHTML = `Director: ${response.director}`;
 
             movieCon.appendChild(clone);
-
         })
         .catch(function(err){
-            movieCon.innerHTML = "<p>No review available for this section. </p>"
-        })
-
+            console.error("Error fetching movie:", err);
+            movieCon.innerHTML = "<p>No Review.</p>";
+        });
     }
 
-    getMovies();
-
-    
+    getCharacters();
 })();
