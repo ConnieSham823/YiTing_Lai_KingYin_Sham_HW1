@@ -21,6 +21,7 @@
     const filmPosters = {
         "The Empire Strikes Back": "images/Empire.jpg",
         "Attack of the Clones": "images/Attack.jpg", 
+        "A New Hope": "images/Hope.jpg"
     };
 
     function getCharacters() {
@@ -35,13 +36,11 @@
                 const a = document.createElement("a");
                 a.textContent = character["name"];
                 
-                a.dataset.review = character["films"][1]; // Assuming you are fetching the 2nd film
-
-                // Set the character's image as a background for the li element
+                a.dataset.review = character["films"][0]; 
                 li.style.backgroundImage = `url(${characterImages[character["name"]] || "images/starWar_readme.jpeg"})`;
-                li.style.backgroundSize = "cover"; // Makes sure the background image covers the entire li
-                li.style.backgroundPosition = "center"; // Center the image
-                li.style.height = "150px"; // Set a height for the li elements to display the background image
+                li.style.backgroundSize = "cover"; 
+                li.style.backgroundPosition = "center"; 
+                li.style.height = "150px";
 
                 li.appendChild(a);
                 ul.appendChild(li);
