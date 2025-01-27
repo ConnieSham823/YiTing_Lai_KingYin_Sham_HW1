@@ -5,11 +5,22 @@
     const movieSpinner = document.querySelector("#loading-spinner"); 
     const baseURL = "https://swapi.dev/";
 
-    // Corrected name of the variable to 'filmPosters'
+    const characterImages = {
+        "Luke Skywalker": "images/luke-skywalker.jpeg",
+        "C-3PO": "images/c-3po.jpeg",
+        "R2-D2": "images/r2-d2.jpeg",
+        "Darth Vader": "images/darth-vader.jpeg",
+        "Leia Organa": "images/leia-organa.jpeg",
+        "Owen Lars": "images/owen-lars.jpeg",
+        "Beru Whitesun Lars": "images/beru-lars.jpg",
+        "R5-D4": "images/r5-d4.jpeg",
+        "Biggs Darklighter": "images/biggs-darklighter.jpeg"
+    };
+
     const filmPosters = {
-        "The Empire Strikes Back": "images/Empire.jpg", // Make sure these images exist
+        "The Empire Strikes Back": "images/Empire.jpg",
         "Attack of the Clones": "images/Attack.jpg", 
-    }
+    };
 
     function getCharacters() {
         fetch(`${baseURL}api/people`)
@@ -23,7 +34,14 @@
                 const a = document.createElement("a");
                 a.textContent = character["name"];
                 
-                a.dataset.review = character["films"][1]; // Ensure you pick the right film index
+                a.dataset.review = character["films"][1]; // Assuming you are fetching the 2nd film
+
+                // Set the character's image as a background for the li element
+                li.style.backgroundImage = `url(${characterImages[character["name"]] || "images/starWar_readme.jpeg"})`;
+                li.style.backgroundSize = "cover"; // Makes sure the background image covers the entire li
+                li.style.backgroundPosition = "center"; // Center the image
+                li.style.height = "150px"; // Set a height for the li elements to display the background image
+
                 li.appendChild(a);
                 ul.appendChild(li);
             });
