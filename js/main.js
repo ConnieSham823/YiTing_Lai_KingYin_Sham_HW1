@@ -6,15 +6,16 @@
     const baseURL = "https://swapi.dev/";
 
     const characterImages = {
-        "Luke Skywalker": "images/luke-skywalker.jpeg",
-        "C-3PO": "images/c-3po.jpeg",
-        "R2-D2": "images/r2-d2.jpeg",
-        "Darth Vader": "images/darth-vader.jpeg",
-        "Leia Organa": "images/leia-organa.jpeg",
-        "Owen Lars": "images/owen-lars.jpeg",
-        "Beru Whitesun Lars": "images/beru-lars.jpg",
-        "R5-D4": "images/r5-d4.jpeg",
-        "Biggs Darklighter": "images/biggs-darklighter.jpeg"
+        "Luke Skywalker": "images/luke.jpg",
+        "C-3PO": "images/c-3po.jpg",
+        "R2-D2": "images/r2-d2.jpg",
+        "Darth Vader": "images/darth.jpg",
+        "Leia Organa": "images/leia.jpg",
+        "Owen Lars": "images/owen.jpg",
+        "Beru Whitesun lars": "images/beru.jpg",
+        "R5-D4": "images/r5-d4.jpg",
+        "Biggs Darklighter": "images/biggs.jpg",
+        "Obi-Wan Kenobi": "images/obi.jpg"
     };
 
     const filmPosters = {
