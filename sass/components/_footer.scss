@@ -1,0 +1,26 @@
+.footer {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @media screen {min-width: 768px;
+      width: 100%;
+      
+    }
+  }
+  
+
+  .footer-logo {
+    height: 30%;
+    width: 20%;
+    display: block;
+
+    @media screen {min-width: 768px;
+      height: 50%;
+      
+    }
+  }
+  
