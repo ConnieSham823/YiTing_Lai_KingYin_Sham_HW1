@@ -72,6 +72,8 @@
         .then(response => response.json())
         .then(function(response){
             const clone = movietemplate.content.cloneNode(true);
+            const movieContainer = clone.querySelector(".movie-container");
+
 
             const movieTitle = clone.querySelector(".movie-title");
             movieTitle.innerHTML = response.title;
@@ -91,11 +93,17 @@
             // Get the poster URL based on the movie title
             const posterURL = filmPosters[response.title];
             if (posterURL) {
+                const movieImageContainer = clone.querySelector(".movie-image-container");
                 const movieImage = document.createElement("img");
+
                 movieImage.src = posterURL;
                 movieImage.alt = `${response.title} Poster`;
-                movieImage.style.maxWidth = "50%"; 
-                movieCon.appendChild(movieImage);
+                movieImage.style.backgroundPosition = "center";
+                movieImage.style.width = "100%";
+                movieImage.style.height = "auto";
+
+                // movieImage.style.maxWidth = "30%"; 
+                movieImageContainer.appendChild(movieImage);
             }
 
             movieCon.appendChild(clone);
@@ -112,3 +120,11 @@
 
     getCharacters();
 })();
+
+// (() => {
+
+// // Include GSAP and ScrollTrigger via CDN or npm
+// gsap.registerPlugin(ScrollTrigger);
+
+
+// })();

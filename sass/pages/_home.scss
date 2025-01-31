@@ -13,17 +13,19 @@ li {
 }
 
 li:nth-child(odd) {
-    background-color: #efefef;
+    background-color: #ffffff;
 }
 
 li img {
     max-width: 10%;
     display: block;
+    padding-bottom: 50px;
 }
 
 #character-list {
     display: block;
     visibility: visible;
+    
 }
 
 .spinner {
@@ -33,7 +35,7 @@ li img {
     transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    display: none; /* Initially hidden */
+    display: none; 
 }
 
 #loading-spinner {
