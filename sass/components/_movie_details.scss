@@ -1,7 +1,6 @@
 /* Movie Section */
 
-
-h1 {
+h2 {
   width: auto;
   background-color: #1D1E1F;
   color: #ffffff;
@@ -18,7 +17,7 @@ h1 {
     display: block;
     width: 80%;
     height: 3px; 
-    background-color: #000000; 
+  
     position: absolute;
     left: 0;
   }
@@ -36,17 +35,9 @@ h1 {
   align-items: center;
   justify-content: space-between;
   max-width: 900px;
-  background-color: #111;
   border-radius: 12px;
   overflow: hidden;
-  color: white;
   box-shadow: 0 4px 8px rgba(60, 49, 49, 0.3);
-
-  .movie-container svg {
-    stroke: white;
-    stroke-width: 3px;
-    fill: transparent;
-}
 
   .movie-image-container {
     flex: 1;
