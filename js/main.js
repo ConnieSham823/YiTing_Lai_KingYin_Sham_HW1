@@ -36,7 +36,7 @@
                 const a = document.createElement("a");
                 a.textContent = character["name"];
                 
-                a.dataset.review = character["films"][0]; 
+                a.dataset.review = character["films"][1]; 
                 li.style.backgroundImage = `url(${characterImages[character["name"]] || "images/starWar_readme.jpeg"})`;
                 li.style.backgroundSize = "cover"; 
                 li.style.backgroundPosition = "center"; 
@@ -121,10 +121,43 @@
     getCharacters();
 })();
 
-// (() => {
+(() => {
+    gsap.registerPlugin(SplitText);
 
-// // Include GSAP and ScrollTrigger via CDN or npm
-// gsap.registerPlugin(ScrollTrigger);
+    const split = new SplitText("#scroll-text", { type: "chars" });
+    
+    gsap.from(split.chars, {
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power2.out",
+        repeat: -1,
+    
+    });
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+       "main",
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          ease: "power3.out",
+          duration: 2,
+          scrollTrigger: {
+            trigger: "#scroll-indicator",
+            toggleActions: "restart none none none",
+            markers: true,
+            start: "top 35%",
+            end: "bottom center",
+          },
+        }
+      );
+    
+   
 
-
-// })();
+})();
