@@ -122,10 +122,14 @@
 })();
 
 (() => {
-    gsap.registerPlugin(SplitText);
 
-    const split = new SplitText("#scroll-text", { type: "chars" });
-    
+    gsap.registerPlugin(SplitText, ScrollToPlugin, ScrollTrigger);
+
+
+const scrollText = document.querySelector("#scroll-text");
+if (scrollText) {
+    const split = new SplitText(scrollText, { type: "chars" });
+
     gsap.from(split.chars, {
         opacity: 0,
         y: 20,
@@ -133,31 +137,58 @@
         duration: 1,
         ease: "power2.out",
         repeat: -1,
-    
+        yoyo: true 
     });
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-       "main",
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          ease: "power3.out",
-          duration: 2,
-          scrollTrigger: {
+}
+
+// ScrollTrigger Animation
+gsap.fromTo(
+    "main",
+    {
+        opacity: 0,
+        y: 50,
+    },
+    {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        ease: "power3.out",
+        duration: 2,
+        scrollTrigger: {
             trigger: "#scroll-indicator",
-            toggleActions: "restart none none none",
-            markers: true,
+            toggleActions: "play none none none", 
             start: "top 35%",
             end: "bottom center",
-          },
-        }
-      );
+        },
+    }
+);
+
+// Scroll to Movie Section on Click
+// Define the mobile breakpoint (e.g., max-width: 768px)
+const forMobile = window.matchMedia("(max-width: 768px)").matches;
+
+if (forMobile) {
+    console.log("GSAP Scroll Animation Enabled on Mobile");
+
+    // Scroll to Movie Section on Click (Only for Mobile)
+    const scrollToMovieSection = () => {
+        gsap.to(window, { duration: 1, scrollTo: "#movie-con", ease: "power2.out" });
+    };
+
+ 
+    const characterCards = document.querySelectorAll(".character-card");
+    characterCards.forEach(card => card.addEventListener("click", scrollToMovieSection));
+
     
+    const movieContainer = document.querySelector("#movie-con");
+    if (movieContainer) {
+        movieContainer.addEventListener("click", scrollToMovieSection);
+    }
+} else {
+    console.log("GSAP Scroll Animation Disabled on Tablet/Desktop");
+}
+
+
    
 
 })();
