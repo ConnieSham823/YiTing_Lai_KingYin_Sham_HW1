@@ -1,4 +1,4 @@
-![Star War Character](images/starWar_readme.jpeg)
+![Star War Character](images/starWar_readme.png)
 
 # Star War Character
 This project is a responsive webpage that uses AJAX to draw data from an API to display information about Star Wars characters. The webpage is designed to work seamlessly from mobile to desktop devices.
